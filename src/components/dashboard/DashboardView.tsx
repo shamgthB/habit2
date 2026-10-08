@@ -21,6 +21,9 @@ import {
   Check,
   ChevronRight,
   TrendingUp,
+  MapPin,
+  Mail,
+  FileSpreadsheet,
 } from 'lucide-react';
 import { getGreeting, formatHumanDate, getPastDaysArray, getTodayDateString } from '../../utils/dateUtils';
 import { DynamicIcon, CATEGORY_COLORS } from '../common/Icons';
@@ -50,6 +53,8 @@ export const DashboardView: React.FC = () => {
     achievements,
     setCurrentSection,
     setIsAddHabitModalOpen,
+    setIsWorkspaceModalOpen,
+    setIsSheetsModalOpen,
     logs,
   } = useApp();
 
@@ -693,6 +698,85 @@ export const DashboardView: React.FC = () => {
                     </span>
                   </div>
                 ))}
+            </div>
+          </div>
+
+          {/* Google Ecosystem & Maps Integration Hub */}
+          <div className="p-5 rounded-3xl bg-linear-to-br from-blue-500/10 via-emerald-500/5 to-transparent border border-blue-500/20 shadow-xs space-y-3">
+            <div className="flex items-center justify-between pb-2 border-b border-blue-500/20">
+              <span className="text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+                Google Ecosystem & Maps
+              </span>
+              <span className="text-3xs uppercase tracking-wider font-bold text-blue-600 dark:text-blue-400">
+                Connected
+              </span>
+            </div>
+
+            <p className="text-2xs text-slate-500 dark:text-slate-400">
+              Sync habits and real-world places across Google Maps, Gmail, Calendar, Tasks, Keep, and Sheets.
+            </p>
+
+            <div className="grid grid-cols-2 gap-2 pt-1">
+              <button
+                onClick={() => setCurrentSection('maps')}
+                className="flex items-center gap-2 p-2.5 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 hover:border-emerald-500 text-left transition-colors cursor-pointer group"
+              >
+                <div className="p-1.5 rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 shrink-0">
+                  <MapPin className="w-4 h-4" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-xs font-bold text-slate-800 dark:text-slate-200 truncate group-hover:text-emerald-600 dark:group-hover:text-emerald-400">
+                    Google Maps
+                  </p>
+                  <p className="text-3xs text-slate-400 truncate">Habit Places</p>
+                </div>
+              </button>
+
+              <button
+                onClick={() => setIsWorkspaceModalOpen(true)}
+                className="flex items-center gap-2 p-2.5 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 hover:border-blue-500 text-left transition-colors cursor-pointer group"
+              >
+                <div className="p-1.5 rounded-lg bg-blue-500/15 text-blue-600 dark:text-blue-400 shrink-0">
+                  <Mail className="w-4 h-4" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-xs font-bold text-slate-800 dark:text-slate-200 truncate group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                    Gmail Report
+                  </p>
+                  <p className="text-3xs text-slate-400 truncate">Send summary</p>
+                </div>
+              </button>
+
+              <button
+                onClick={() => setIsWorkspaceModalOpen(true)}
+                className="flex items-center gap-2 p-2.5 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 hover:border-amber-500 text-left transition-colors cursor-pointer group"
+              >
+                <div className="p-1.5 rounded-lg bg-amber-500/15 text-amber-600 dark:text-amber-400 shrink-0">
+                  <CalendarIcon className="w-4 h-4" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-xs font-bold text-slate-800 dark:text-slate-200 truncate group-hover:text-amber-600 dark:group-hover:text-amber-400">
+                    Calendar & Tasks
+                  </p>
+                  <p className="text-3xs text-slate-400 truncate">Schedule & sync</p>
+                </div>
+              </button>
+
+              <button
+                onClick={() => setIsSheetsModalOpen(true)}
+                className="flex items-center gap-2 p-2.5 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 hover:border-green-500 text-left transition-colors cursor-pointer group"
+              >
+                <div className="p-1.5 rounded-lg bg-green-500/15 text-green-600 dark:text-green-400 shrink-0">
+                  <FileSpreadsheet className="w-4 h-4" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-xs font-bold text-slate-800 dark:text-slate-200 truncate group-hover:text-green-600 dark:group-hover:text-green-400">
+                    Google Sheets
+                  </p>
+                  <p className="text-3xs text-slate-400 truncate">Auto-sync & backup</p>
+                </div>
+              </button>
             </div>
           </div>
         </div>

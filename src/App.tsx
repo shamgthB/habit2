@@ -25,9 +25,11 @@ import { MoodView } from './components/mood/MoodView';
 import { HistoryView } from './components/history/HistoryView';
 import { ProfileView } from './components/profile/ProfileView';
 import { SettingsView } from './components/settings/SettingsView';
+import { HabitLocationsMap } from './components/maps/HabitLocationsMap';
+import { WorkspaceModal } from './components/workspace/WorkspaceModal';
 
 const MainLayout: React.FC = () => {
-  const { currentSection } = useApp();
+  const { currentSection, isWorkspaceModalOpen, setIsWorkspaceModalOpen } = useApp();
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
 
   const renderActiveSection = () => {
@@ -58,6 +60,8 @@ const MainLayout: React.FC = () => {
         return <ProfileView />;
       case 'settings':
         return <SettingsView />;
+      case 'maps':
+        return <HabitLocationsMap />;
       default:
         return <DashboardView />;
     }
@@ -92,6 +96,10 @@ const MainLayout: React.FC = () => {
       <OnboardingModal />
       <HabitTemplatesModal />
       <SheetsSyncModal />
+      <WorkspaceModal
+        isOpen={isWorkspaceModalOpen}
+        onClose={() => setIsWorkspaceModalOpen(false)}
+      />
 
       {/* Toast Feedback */}
       <ToastContainer />

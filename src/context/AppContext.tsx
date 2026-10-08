@@ -161,6 +161,8 @@ interface AppContextType {
   setIsOnboardingOpen: (open: boolean) => void;
   isTemplatesModalOpen: boolean;
   setIsTemplatesModalOpen: (open: boolean) => void;
+  isWorkspaceModalOpen: boolean;
+  setIsWorkspaceModalOpen: (open: boolean) => void;
 
   // Toasts
   toasts: ToastMessage[];
@@ -183,6 +185,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [isSheetsModalOpen, setIsSheetsModalOpen] = useState(false);
   const [isOnboardingOpen, setIsOnboardingOpen] = useState(!data.settings.onboardingCompleted);
   const [isTemplatesModalOpen, setIsTemplatesModalOpen] = useState(false);
+  const [isWorkspaceModalOpen, setIsWorkspaceModalOpen] = useState(false);
 
   // Toasts
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
@@ -1404,6 +1407,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         setIsOnboardingOpen,
         isTemplatesModalOpen,
         setIsTemplatesModalOpen,
+        isWorkspaceModalOpen,
+        setIsWorkspaceModalOpen,
         toasts,
         addToast,
         removeToast,

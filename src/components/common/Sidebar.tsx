@@ -19,6 +19,8 @@ import {
   Sparkles,
   ChevronRight,
   X,
+  MapPin,
+  Mail,
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -32,6 +34,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isMobileOpen = false, onCloseM
     setCurrentSection,
     setIsAddHabitModalOpen,
     setIsTemplatesModalOpen,
+    setIsWorkspaceModalOpen,
     habits,
     goals,
     challenges,
@@ -46,6 +49,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isMobileOpen = false, onCloseM
     { id: 'habits', label: 'My Habits', icon: CheckSquare, badge: activeHabitsCount },
     { id: 'calendar', label: 'Calendar', icon: Calendar },
     { id: 'analytics', label: 'Analytics', icon: BarChart3 },
+    { id: 'maps', label: 'Habit Places (Maps)', icon: MapPin },
     { id: 'goals', label: 'Goals', icon: Target, badge: activeGoalsCount },
     { id: 'challenges', label: 'Challenges', icon: Trophy, badge: activeChallengesCount },
     { id: 'achievements', label: 'Achievements', icon: Award },
@@ -172,6 +176,23 @@ export const Sidebar: React.FC<SidebarProps> = ({ isMobileOpen = false, onCloseM
             );
           })}
         </nav>
+
+        {/* Google Workspace Tools Trigger */}
+        <div className="px-3 pt-2">
+          <button
+            onClick={() => {
+              setIsWorkspaceModalOpen(true);
+              if (onCloseMobile) onCloseMobile();
+            }}
+            className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl bg-gradient-to-r from-blue-500/10 via-emerald-500/10 to-amber-500/10 hover:from-blue-500/20 hover:to-amber-500/20 text-slate-700 dark:text-slate-300 font-semibold text-xs border border-slate-200 dark:border-slate-800 transition-all cursor-pointer"
+          >
+            <Mail className="w-4 h-4 text-blue-500" />
+            <span className="flex-1 text-left">Google Workspace</span>
+            <span className="text-3xs px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-bold">
+              Gmail & Cal
+            </span>
+          </button>
+        </div>
 
         {/* Footer Info */}
         <div className="p-4 border-t border-slate-100 dark:border-slate-800/60 text-2xs text-slate-400">

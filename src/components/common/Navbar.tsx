@@ -7,6 +7,7 @@ import {
   Moon,
   Laptop,
   FileSpreadsheet,
+  Mail,
   Flame,
   Zap,
   Menu,
@@ -28,6 +29,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onMobileMenuToggle }) => {
     setIsSearchModalOpen,
     setIsNotificationDrawerOpen,
     setIsSheetsModalOpen,
+    setIsWorkspaceModalOpen,
     setCurrentSection,
   } = useApp();
 
@@ -105,6 +107,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onMobileMenuToggle }) => {
         >
           <FileSpreadsheet className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
           <span className="hidden xl:inline">Google Sheets</span>
+        </button>
+
+        {/* Google Workspace Trigger (Gmail, Calendar, Tasks, Keep) */}
+        <button
+          onClick={() => setIsWorkspaceModalOpen(true)}
+          className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-blue-500/40 hover:bg-blue-50/50 dark:hover:bg-blue-950/20 text-slate-700 dark:text-slate-300 text-xs font-semibold transition-all cursor-pointer"
+          title="Google Workspace Tools (Gmail, Calendar, Tasks, Keep)"
+        >
+          <Mail className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+          <span className="hidden xl:inline">Google Apps</span>
         </button>
 
         {/* Reminders / Notifications Bell */}

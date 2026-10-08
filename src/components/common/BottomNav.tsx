@@ -16,6 +16,7 @@ import {
   User,
   Plus,
   X,
+  MapPin,
 } from 'lucide-react';
 
 export const BottomNav: React.FC = () => {
@@ -30,6 +31,7 @@ export const BottomNav: React.FC = () => {
   ];
 
   const moreTabs = [
+    { id: 'maps', label: 'Places Map', icon: MapPin },
     { id: 'analytics', label: 'Analytics', icon: BarChart3 },
     { id: 'goals', label: 'Goals', icon: Target },
     { id: 'challenges', label: 'Challenges', icon: Trophy },
