@@ -1,0 +1,6 @@
+{
+  "name": "AuraHabit - Daily Habit & Life Tracker",
+  "description": "A premium daily habit tracker with streaks, analytics, routines, focus timer, mood tracking, life score, and Google Sheets sync.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
